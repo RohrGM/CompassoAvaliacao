@@ -27,6 +27,5 @@ public class Atividade {
 			System.out.println("A mensagem expressa um sentimento neutro");
 		}
 		
-		sc.close();		
 	}
 }
