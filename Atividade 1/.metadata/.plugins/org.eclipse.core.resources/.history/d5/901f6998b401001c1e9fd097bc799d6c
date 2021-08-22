@@ -1,0 +1,56 @@
+package programa1;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class CadastroProduto {
+
+	public static void main(String[] args) {
+
+		RemoverProduto();
+		
+	}
+	
+	private static void RemoverProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		Produto p = dao.buscarPorId(2l);	
+		em.getTransaction().begin();
+		dao.remove(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	private static void AtualizaProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		Produto p = dao.buscarPorId(1l);
+		
+		p.setPreco(new BigDecimal("3000"));
+		p.setDataAlteracao(LocalDate.now());
+		
+		em.getTransaction().begin();
+		dao.atualizar(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	private static void cadastroDeProdutos() {
+		Produto tv = new Produto();
+		tv.setNome("tv Lg");
+
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+
+		em.getTransaction().begin();
+		dao.cadastrar(tv);
+		em.getTransaction().commit();
+		em.close();
+	}
+}

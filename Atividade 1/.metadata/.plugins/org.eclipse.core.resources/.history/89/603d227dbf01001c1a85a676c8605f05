@@ -1,0 +1,89 @@
+package programa1;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class CadastroProduto {
+
+	public static void main(String[] args) {
+
+		AtualizaProduto();
+		/*while(true) {
+
+			Scanner sc = new Scanner(System.in);
+			printMenu();
+
+			try(){
+				int opcao = sc.nextInt();
+
+				switch(opcao) {
+					case 1:
+						cadastroDeProdutos();
+						break;
+					case 2:
+						atualizaProduto();
+						break;
+					case 3:
+						removerProduto();
+						break;
+					case 0:
+						System.exit(0);
+
+					default:
+						System.out.println("Opção invalida");
+
+
+				}
+			}catch (Exception e) {
+				System.out.println("Digite um numero");
+			}
+		}	*/
+
+	}
+
+	private static void RemoverProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+
+		Produto p = dao.buscarPorId(2l);	
+		em.getTransaction().begin();
+		dao.remove(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	private static void AtualizaProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+
+		Produto p = dao.buscarPorId(1l);
+
+		p.setPreco(new BigDecimal("1000"));
+		p.setDataAlteracao(LocalDate.now());
+
+		em.getTransaction().begin();
+		dao.cadastrar(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	private static void cadastroDeProdutos() {
+		Produto tv = new Produto("Televisão");
+		/*Produto tv = new Produto("Televisão", "Tv Smart 32 Polegadas", Integer.valueOf(5), new BigDecimal("3000"));
+		Produto celular = new Produto("Celular LG", "Celular Lg K50", Integer.valueOf(2), new BigDecimal("2000"));
+		Produto cadeira = new Produto("Cadeira tela", "Cadeira tela 90Kg Preta", Integer.valueOf(2), new BigDecimal("250"));*/
+
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+
+		em.getTransaction().begin();
+		dao.cadastrar(tv);
+		/*dao.cadastrar(celular);
+		dao.cadastrar(cadeira);*/
+		em.getTransaction().commit();
+		em.close();
+	}
+}

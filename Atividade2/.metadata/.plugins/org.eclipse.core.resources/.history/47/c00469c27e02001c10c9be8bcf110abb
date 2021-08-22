@@ -1,0 +1,39 @@
+package atividade2;
+
+import javax.persistence.EntityManager;
+
+public class ProdutoDao {
+	
+	private EntityManager em;
+	
+	public ProdutoDao(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void cadastrar(Filme filme) {
+		this.em.persist(filme);
+		System.out.printf("\nProduto criado: %s", filme.toString() );
+	}
+	
+	public void atualizar(Filme filme) {
+		this.em.merge(filme);
+		System.out.printf("\n\nProduto alterado para: %s\n\n", filme.toString() );
+	}
+	
+	public void remove(Filme filme) {
+		try {
+			filme = em.merge(filme);
+			System.out.printf("\n\nProduto %s removido\n\n", filme.getNome());
+			this.em.merge(filme);
+			this.em.remove(filme);
+		}catch (IllegalArgumentException e) {
+			System.out.println("Produto não encontrado para ser removido");
+		}
+		
+	}
+	
+	public Filme buscarPorId(long id) {
+		return em.find(Filme.class, id);
+	}
+
+}

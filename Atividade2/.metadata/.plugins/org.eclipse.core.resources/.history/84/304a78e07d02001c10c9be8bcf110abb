@@ -1,0 +1,28 @@
+package atividade2;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "filme")
+public class Filme {
+	
+	private long id;
+	private String nome;
+	private String descricao;
+	private Integer ano;
+	
+	
+	public Filme() {}
+	
+	public Filme(String nome, String descricao, Integer ano) {
+		super();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.ano = ano;
+	}
+	
+	
+	
+
+}

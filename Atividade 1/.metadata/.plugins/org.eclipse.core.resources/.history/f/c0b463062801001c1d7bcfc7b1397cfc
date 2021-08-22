@@ -1,0 +1,22 @@
+package programa1;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produto")
+public class Produto {
+	
+	private long id;
+	private String nome;
+	private String descricao;
+	private Integer quantidade;
+	private BigDecimal preco;
+	private LocalDate dataCriacao;
+	private LocalDate dataAlteracao;
+	
+
+}

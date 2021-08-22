@@ -1,0 +1,26 @@
+package atividade3;
+
+public class atividade3 {
+
+	public static void main(String[] args) {
+		String test = "aqui teste aqui teste aqui aqui";
+
+		int cont = 0;
+		System.out.println(test);
+		
+		while(true) {
+
+			int index = test.indexOf("aqui");
+
+			if(index != -1) {
+				test = test.substring(0, index) + "*" + test.substring(index); 
+				cont++;
+			}else {
+				break;
+			}
+
+		}
+
+		System.out.println("232");
+	}
+}

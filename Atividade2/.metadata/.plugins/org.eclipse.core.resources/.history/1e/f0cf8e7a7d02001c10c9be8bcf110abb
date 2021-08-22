@@ -1,0 +1,14 @@
+package programa2;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "filme")
+
+public class Filme {
+	
+	
+	
+
+}

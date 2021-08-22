@@ -1,0 +1,64 @@
+package programa1;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Scanner;
+import javax.persistence.EntityManager;
+
+public class CadastroProduto {
+
+	public static void main(String[] args) {
+
+		while(true) {
+			Scanner sc = new Scanner(System.in);
+			
+		}
+		
+	}
+	
+	private static void printMenu() {
+		
+	}
+	
+	private static void removerProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		Produto p = dao.buscarPorId(2l);	
+		em.getTransaction().begin();
+		dao.remove(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	private static void atualizaProduto() {
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+		
+		Produto p = dao.buscarPorId(1l);
+		
+		p.setPreco(new BigDecimal("3000"));
+		p.setDataAlteracao(LocalDate.now());
+		
+		em.getTransaction().begin();
+		dao.atualizar(p);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	private static void cadastroDeProdutos() {
+		Produto tv = new Produto("Televisão", "Tv Smart 32 Polegadas", Integer.valueOf(5), new BigDecimal("3000"));
+		Produto celular = new Produto("Celular LG", "Celular Lg K50", Integer.valueOf(2), new BigDecimal("2000"));
+		Produto cadeira = new Produto("Cadeira tela", "Cadeira tela 90Kg Preta", Integer.valueOf(2), new BigDecimal("250"));
+
+		EntityManager em = JPAUtil.getEntity();
+		ProdutoDao dao = new ProdutoDao(em);
+
+		em.getTransaction().begin();
+		dao.cadastrar(tv);
+		dao.cadastrar(celular);
+		dao.cadastrar(cadeira);
+		em.getTransaction().commit();
+		em.close();
+	}
+}

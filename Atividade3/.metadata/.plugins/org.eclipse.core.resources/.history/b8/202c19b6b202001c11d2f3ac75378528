@@ -1,0 +1,11 @@
+package atividade3;
+
+public class contadorDePalavras {
+	
+	int cont = 0;
+	
+	
+	
+	
+
+}

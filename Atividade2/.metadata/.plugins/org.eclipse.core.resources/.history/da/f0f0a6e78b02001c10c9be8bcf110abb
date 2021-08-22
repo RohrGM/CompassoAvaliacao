@@ -1,0 +1,39 @@
+package atividade2;
+
+import java.util.Scanner;
+
+import javax.persistence.EntityManager;
+
+public class Atividade2 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int pagina = 2, filmes = 1;
+		
+		
+		
+		cadastrarFilmes();
+		
+
+	}
+	
+
+	private static void cadastrarFilmes() {
+		
+		EntityManager em = JPAUtil.getEntity();
+		FilmeDao dao = new FilmeDao(em);
+		em.getTransaction().begin();
+		
+		for(int i = 0; i < 20; i ++) {
+			Filme filme = new Filme("Filme " + (i), "Descrição " + i, 2000);
+			dao.cadastrar(filme);
+		}
+		
+		System.out.println(dao.getPaginaFilmes(5, 1)
+		em.getTransaction().commit();
+		em.close();
+	}
+}
+

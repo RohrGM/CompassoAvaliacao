@@ -1,0 +1,25 @@
+package atividade3;
+
+public class contadorDePalavras {
+
+
+
+
+	public int contador(String frase, String alvo) {
+		int cont = 0;
+		frase = frase.replaceFirst(alvo, "");
+		return cont;
+		/*while(true) {
+
+			int index = frase.indexOf(alvo);
+
+			if(index != -1) {
+				cont++;
+				frase = frase.replaceFirst(alvo, "");
+			}else {
+
+				return cont;
+			}
+		}*/
+	}
+}

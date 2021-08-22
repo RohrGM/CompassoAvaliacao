@@ -1,0 +1,28 @@
+package atividade3;
+
+import java.util.Scanner;
+
+public class atividade3 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);	
+		
+		String mensagem = sc.nextLine();
+		
+		contadorDePalavras ct = new contadorDePalavras();
+		
+		/*int divertido = ct.contador(mensagem, "teste");
+		int chateado = ct.contador(mensagem, "aqui");
+		
+		
+		if(divertido > chateado) {
+			System.out.println("A mensagem expressa um sentimento dirverdito");
+		}else if(divertido < chateado) {
+			System.out.println("A mensagem expressa um sentimento chateado");
+		}else {
+			System.out.println("A mensagem expressa um sentimento neutro");
+		}
+		*/
+	}
+}

@@ -1,0 +1,20 @@
+package atividade3;
+
+public class atividade3 {
+
+	public static void main(String[] args) {
+		String test = "aqui teste aqui teste aqui aqui";
+
+		int cont = 0;		
+
+
+			int index = test.indexOf("aqui");
+			test = test.substring(0, index + 2) + "*" + test.substring(index); 
+			System.out.println(test);
+
+
+		
+
+
+	}
+}

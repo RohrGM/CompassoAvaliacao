@@ -1,0 +1,36 @@
+package atividade2;
+
+import java.util.List;
+import javax.persistence.EntityManager;
+
+public class FilmeDao {
+	
+	private EntityManager em;
+	
+	public FilmeDao(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void cadastrar(Filme filme) {
+		this.em.persist(filme);
+		System.out.printf("\nFilme criado criado: %s", filme.toString() );
+	}
+	
+	public Filme buscarPorId(long id) {
+		return em.find(Filme.class, id);
+	}
+	
+	public List<Filme> getPaginaFilmes(int quantidade, int pagina){
+		long i = quantidade * pagina - quantidade;
+		long fim = quantidade * pagina;
+		
+		String jpql = "SELECT f FROM Filme f WHERE f.id >= ?1 AND f.id <= ?2"; 
+		
+		return em.createQuery(jpql, Filme.class)
+				.setParameter(1, i).setParameter(2, fim)
+				.getResultList();
+		
+	}
+
+
+}
