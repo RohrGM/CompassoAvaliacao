@@ -18,10 +18,10 @@ public class Atividade {
 			System.out.printf("\n######## Digite o numero de filmes por pagina e o numero da pagina ou 0 e 0 para sair #########\n");
 			
 			try {
-				int quantidade = sc.nextInt();
-				int pagina = sc.nextInt();
+				long quantidade = sc.nextLong();
+				long pagina = sc.nextLong();
 				
-				if(quantidade == 0 && pagina == 0) {
+				if(quantidade == 0l && pagina == 0l) {
 					sc.close();
 					System.exit(0);
 				}
@@ -34,7 +34,7 @@ public class Atividade {
 		}		
 	}
 	
-	private static void consultaPagina(int quantidade, int pagina) {
+	private static void consultaPagina(long quantidade, long pagina) {
 		
 		EntityManager em = JPAUtil.getEntity();
 		FilmeDao dao = new FilmeDao(em);

@@ -13,28 +13,24 @@ public class Atividade {
 		Scanner sc = new Scanner(System.in);		
 		cadastrarFilmes();
 		
-		while(true) {
+		System.out.printf("\n######## Digite o numero de filmes por pagina e o numero da pagina #########\n");
 		
-			System.out.printf("\n######## Digite o numero de filmes por pagina e o numero da pagina ou 0 e 0 para sair #########\n");
+		try {
+			long quantidade = sc.nextLong();
+			long pagina = sc.nextLong();
 			
-			try {
-				int quantidade = sc.nextInt();
-				int pagina = sc.nextInt();
-				
-				if(quantidade == 0 && pagina == 0) {
-					sc.close();
-					System.exit(0);
-				}
-				
-				consultaPagina(quantidade, pagina);		
-				
-			}catch (InputMismatchException e) {
-				System.out.println("######### Opção invalida #########");
-			}
-		}		
+			consultaPagina(quantidade, pagina);
+		
+			
+		}catch (InputMismatchException e) {
+			System.out.println("######### Opção invalida #########");
+		}
+		
+		sc.close();
+		
 	}
 	
-	private static void consultaPagina(int quantidade, int pagina) {
+	private static void consultaPagina(long quantidade, long pagina) {
 		
 		EntityManager em = JPAUtil.getEntity();
 		FilmeDao dao = new FilmeDao(em);

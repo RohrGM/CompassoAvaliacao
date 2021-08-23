@@ -1,7 +1,6 @@
 package programa;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 
 public class FilmeDao {
@@ -21,19 +20,11 @@ public class FilmeDao {
 		return em.find(Filme.class, id);
 	}
 	
-	public List<Filme> getPaginaFilmes(int quantidade, int pagina){
-		return em.createQuery("SELECT f FROM Filme f", Filme.class)
-				.setMaxResults(quantidade)
-				.setFirstResult((pagina-1) * quantidade )
-				.getResultList();
-		
-	}
-	
-	/*public List<Filme> getPaginaFilmes(long quantidade, long pagina){
+	public List<Filme> getPaginaFilmes(long quantidade, long pagina){
 		return em.createQuery("SELECT f FROM Filme f WHERE f.id >= ?1 AND f.id <= ?2", Filme.class)
 				.setParameter(1, (quantidade * pagina) - (quantidade - 1))
 				.setParameter(2, quantidade * pagina)
 				.getResultList();
 		
-	*/
+	}
 }

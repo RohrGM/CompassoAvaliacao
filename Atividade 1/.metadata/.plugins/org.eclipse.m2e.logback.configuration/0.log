@@ -1613,3 +1613,4 @@ org.eclipse.core.runtime.CoreException: Launch configuration CriaBancoProduto re
 2021-08-22 12:29:46,445 [Worker-8: Launching Atividade (1)] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2021-08-22 12:30:28,550 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2021-08-22 12:48:56,438 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-08-22 21:03:26,701 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
