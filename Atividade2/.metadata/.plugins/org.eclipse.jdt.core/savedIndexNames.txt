@@ -9,9 +9,9 @@ INDEX VERSION 1.131+D:\Users\Rohr\Documents\GitHub\CompassoAvaliacao\Atividade2\
 3556381317.index
 488010433.index
 528891537.index
-2569235313.index
-3730849749.index
 3486447558.index
+3730849749.index
+2569235313.index
 17309.index
 1097684100.index
 1473587719.index
